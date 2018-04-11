@@ -1,0 +1,31 @@
+{
+  "name": "dai-wallet",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "jest-expo": "26.0.0",
+    "react-native-scripts": "1.13.1",
+    "react-test-renderer": "16.3.0-alpha.1",
+    "remote-redux-devtools": "^0.5.12"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "ethers": "^3.0.9",
+    "expo": "^26.0.0",
+    "react": "16.3.0-alpha.1",
+    "react-native": "0.54.0",
+    "react-native-keychain": "^3.0.0-rc.3",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2"
+  }
+}

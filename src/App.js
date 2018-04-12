@@ -1,14 +1,15 @@
 // Vendor
 import React from "react";
-import { Provider } from 'react-redux';
 import { Button, StyleSheet, Text, View } from "react-native";
+import { Provider } from 'react-redux';
+import { StackNavigator } from "react-navigation";
 import { Wallet } from "ethers";
 
 // Internal
 import Homepage from './Homepage/Container';
 import store from './store';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
@@ -17,6 +18,12 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default StackNavigator({
+  Home: {
+    screen: App
+  }
+});
 
 const styles = StyleSheet.create({
   container: {

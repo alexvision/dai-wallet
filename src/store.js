@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from "redux";
 
 // Internal
 import reducer from "./reducer";
+import walletSaga from './Wallet/saga';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,6 +17,6 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
-// sagaMiddleware.run(whateverSaga);
+sagaMiddleware.run(walletSaga);
 
 export default store;

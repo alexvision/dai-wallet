@@ -2,13 +2,18 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
 // Internal
-import { createWallet } from './wallet';
-import { WALLET_FETCH_FAILED, WALLET_FETCH_SUCCEEDED, WALLET_FETCH_REQUESTED } from './actions';
+import { createWallet } from "./wallet";
+import {
+  WALLET_FETCH_FAILED,
+  WALLET_FETCH_SUCCEEDED,
+  WALLET_FETCH_REQUESTED
+} from "./actions";
 
 function* getWallet() {
   try {
-    const user = yield call(createWallet);
-    yield put({ type: WALLET_FETCH_SUCCEEDED, payload: 'hello' });
+    const wallet = yield call(createWallet);
+    console.log(wallet);
+    yield put({ type: WALLET_FETCH_SUCCEEDED, payload: wallet });
   } catch (err) {
     yield put({ type: WALLET_FETCH_FAILED, payload: err });
   }

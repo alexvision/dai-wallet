@@ -9,15 +9,10 @@ import { createWallet } from '../Wallet/wallet';
 export default class App extends React.Component {
   constructor() {
     super();
-    const wallet = createWallet();
-    console.log("WALLET", wallet)
-    this.state = {
-      wallet
-    };
   }
   render() {
     return <View style={styles.container}>
-        <Text>Address: {this.state.wallet.address}</Text>
+        <Text>Address: {this.props.wallet.address}</Text>
         <Text>Props: {JSON.stringify(this.props)}</Text>
         <Button title="Hello" onPress={() => {}} />
       </View>;

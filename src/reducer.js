@@ -1,4 +1,8 @@
+// Vendor
 import { combineReducers } from "redux";
+
+// Internal
+import wallet from './Wallet/reducer';
 
 const defaultState = { test: "test" };
 
@@ -9,6 +13,6 @@ function reducer(state = defaultState, action) {
   }
 };
 
-const rootReducer = combineReducers({ state: reducer });
+const rootReducer = combineReducers({ wallet });
 
 export default rootReducer;

@@ -13,6 +13,7 @@ import { requestWallet } from './Wallet/actions';
 class App extends React.Component {
   constructor() {
     super();
+    // Setting initial state at the highest level component in the application
     store.dispatch(requestWallet());
   }
   render() {

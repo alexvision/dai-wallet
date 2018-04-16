@@ -6,30 +6,33 @@ import {
 import { Wallet } from "ethers";
 
 // TODO: make async
-const createWallet = () => {
+const createWallet = async () => {
   const wallet = Wallet.createRandom();
   const { address, privateKey } = wallet;
-  return wallet;
 
   console.log('WALLET:', wallet);
-  
-  // Store the credentials
-  // await setGenericPassword(address, privateKey);
-  
-  // try {
-  //   // Retreive the credentials
-  //   const credentials = await getGenericPassword();
-  //   if (credentials) {
-  //     console.log(
-  //       "Credentials successfully loaded for address " + credentials.username
-  //     );
-  //     return wallet;
-  //   } else {
-  //     console.log("No credentials stored");
-  //   }
-  // } catch (error) {
-  //   console.log("Keychain couldn't be accessed!", error);
-  // }
+  console.log('starting await');
+  await setGenericPassword(address, privateKey);
+  console.log('finished set password');
+  return wallet;  
 };
+
+const getPassword = async () => { 
+  try {
+    console.log('in try');
+    // Retreive the credentials
+    const credentials = await getGenericPassword();
+    if (credentials) {
+      console.log(
+        "Credentials successfully loaded for address " + credentials.username
+      );
+      return wallet;
+    } else {
+      console.log("No credentials stored");
+    }
+  } catch (error) {
+    console.log("Keychain couldn't be accessed!", error);
+  }
+}
 
 export { createWallet };

@@ -9,10 +9,10 @@ import {
   WALLET_FETCH_REQUESTED
 } from "./actions";
 
-function* getWallet() {
+function* getWallet(wallet) {
   try {
     const wallet = yield call(createWallet);
-    console.log(wallet);
+    console.log('RETURNED WALLET', wallet);
     yield put({ type: WALLET_FETCH_SUCCEEDED, payload: wallet });
   } catch (err) {
     yield put({ type: WALLET_FETCH_FAILED, payload: err });

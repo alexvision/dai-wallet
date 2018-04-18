@@ -3,17 +3,19 @@ import {
   setGenericPassword,
   getGenericPassword
 } from "react-native-keychain";
-import { Wallet } from "ethers";
+import { Wallet, providers } from "ethers";
 
 // TODO: make async
 const createWallet = async () => {
   const wallet = Wallet.createRandom();
+  wallet.provider = providers.getDefaultProvider();
   const { address, privateKey } = wallet;
 
   console.log('WALLET:', wallet);
   console.log('starting await');
-  await setGenericPassword(address, privateKey);
+  // await setGenericPassword(address, privateKey);
   console.log('finished set password');
+  window.wallet = wallet;
   return wallet;  
 };
 

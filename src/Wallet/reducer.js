@@ -11,8 +11,11 @@ function reducer(state = defaultState, action) {
   switch (action.type) {
     case WALLET_FETCH_SUCCEEDED: 
       console.log('REDUCING', action.payload);
+      const { address, mnemonic, privateKey } = action.payload;
       return {
-        address: action.payload.address,
+        address,
+        mnemonic,
+        privateKey
       }
     default:
       return state;

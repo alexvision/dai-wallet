@@ -4,17 +4,28 @@ import { Button, StyleSheet, Text, View } from "react-native";
 // import { Wallet } from "ethers";
 
 // Internal
-import { createWallet } from '../Wallet/wallet';
+import { createWallet } from "../Wallet/wallet";
 
-export default class App extends React.Component {
+export default class Homepage extends React.Component {
   constructor() {
     super();
+    this.state = { 
+      balance: null
+    }
   }
   render() {
+    const balancePromise = window.wallet.getBalance();
+    balancePromise.then(bigNumBalance => {
+      const balance = Number(bigNumBalance);
+      if (Number.isInteger(balance) && balance !== this.state.balance) {
+        this.setState({ balance })
+      }
+    });
+
     return <View style={styles.container}>
-        <Text>Address: {this.props.wallet.address}</Text>
-        <Text>Props: {JSON.stringify(this.props)}</Text>
         <Button title="Hello" onPress={() => {}} />
+        <Text>Address: {window.wallet.address}</Text>
+        <Text>Balance: {this.state.balance}</Text>
       </View>;
   }
 }

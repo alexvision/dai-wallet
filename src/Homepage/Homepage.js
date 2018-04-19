@@ -5,28 +5,32 @@ import { Button, StyleSheet, Text, View } from "react-native";
 
 // Internal
 import { createWallet } from "../Wallet/wallet";
+import NumPad from "./NumPad";
 
 export default class Homepage extends React.Component {
   constructor() {
     super();
-    this.state = { 
+    this.state = {
       balance: null
-    }
+    };
   }
   render() {
     const balancePromise = window.wallet.getBalance();
     balancePromise.then(bigNumBalance => {
       const balance = Number(bigNumBalance);
       if (Number.isInteger(balance) && balance !== this.state.balance) {
-        this.setState({ balance })
+        this.setState({ balance });
       }
     });
 
-    return <View style={styles.container}>
-        <Button title="Hello" onPress={() => {}} />
+    return (
+      <View style={styles.container}>
+        <Button title="Hello" onPress={() => {alert('hello')}} />
         <Text>Address: {window.wallet.address}</Text>
         <Text>Balance: {this.state.balance}</Text>
-      </View>;
+        <NumPad />
+      </View>
+    );
   }
 }
 

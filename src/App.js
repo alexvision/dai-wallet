@@ -1,14 +1,14 @@
 // Vendor
 import React from "react";
 import { StyleSheet, Text } from "react-native";
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
 import { StackNavigator } from "react-navigation";
 import { Wallet } from "ethers";
 
 // Internal
-import Homepage from './Homepage/Container';
-import store from './store';
-import { requestWallet } from './Wallet/actions';
+import Homepage from "./Homepage/Container";
+import store from "./store";
+import { requestWallet } from "./Wallet/actions";
 
 class App extends React.Component {
   constructor() {
@@ -17,9 +17,11 @@ class App extends React.Component {
     store.dispatch(requestWallet());
   }
   render() {
-    return <Provider store={store}>
+    return (
+      <Provider store={store}>
         <Homepage />
-      </Provider>;
+      </Provider>
+    );
   }
 }
 

@@ -12,7 +12,7 @@ import {
 function* getWallet(wallet) {
   try {
     const wallet = yield call(createWallet);
-    console.log('RETURNED WALLET', wallet);
+    console.log("RETURNED WALLET", wallet);
     yield put({ type: WALLET_FETCH_SUCCEEDED, payload: wallet });
   } catch (err) {
     yield put({ type: WALLET_FETCH_FAILED, payload: err });

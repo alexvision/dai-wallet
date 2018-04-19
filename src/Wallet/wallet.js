@@ -1,8 +1,5 @@
 // Vendor
-import {
-  setGenericPassword,
-  getGenericPassword
-} from "react-native-keychain";
+import { setGenericPassword, getGenericPassword } from "react-native-keychain";
 import { Wallet, providers } from "ethers";
 
 // TODO: make async
@@ -11,17 +8,17 @@ const createWallet = async () => {
   wallet.provider = providers.getDefaultProvider();
   const { address, privateKey } = wallet;
 
-  console.log('WALLET:', wallet);
-  console.log('starting await');
+  console.log("WALLET:", wallet);
+  console.log("starting await");
   // await setGenericPassword(address, privateKey);
-  console.log('finished set password');
+  console.log("finished set password");
   window.wallet = wallet;
-  return wallet;  
+  return wallet;
 };
 
-const getPassword = async () => { 
+const getPassword = async () => {
   try {
-    console.log('in try');
+    console.log("in try");
     // Retreive the credentials
     const credentials = await getGenericPassword();
     if (credentials) {
@@ -35,6 +32,6 @@ const getPassword = async () => {
   } catch (error) {
     console.log("Keychain couldn't be accessed!", error);
   }
-}
+};
 
 export { createWallet };

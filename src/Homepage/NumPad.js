@@ -4,7 +4,7 @@ import { Button, Text, TouchableOpacity, StyleSheet, View } from "react-native";
 const NUMBER_PAD_VALS = [1, 2, 3, 4, 5, 6, 7, 8, 9, ".", 0];
 
 const NumberButton = val => (
-  <TouchableOpacity style={styles.button}>
+  <TouchableOpacity key={val} style={styles.button}>
     <Button title={val.toString()} onPress={() => {}} />
   </TouchableOpacity>
 );

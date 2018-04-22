@@ -25,7 +25,6 @@ export default class Homepage extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Button title="Hello" onPress={() => {alert('hello')}} />
         <Text>Address: {window.wallet.address}</Text>
         <Text>Balance: {this.state.balance}</Text>
         <NumPad />

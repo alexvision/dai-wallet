@@ -1,6 +1,6 @@
 // Vendor
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 // import { Wallet } from "ethers";
 
 // Internal
@@ -25,6 +25,11 @@ export default class Homepage extends React.Component {
 
     return (
       <View style={styles.container}>
+        <TextInput
+          style={{ backgroundColor: "red", width: 40 }}
+          editable
+          keyboardType="numeric"
+        />
         <Text>Address: {window.wallet.address}</Text>
         <Text>Balance: {this.state.balance}</Text>
         <NumPad />

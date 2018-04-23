@@ -2,11 +2,11 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 import { Provider } from "react-redux";
-import { StackNavigator } from "react-navigation";
 import { Wallet } from "ethers";
 
 // Internal
 import Homepage from "./Homepage/Container";
+import RootStack from "./Router";
 import store from "./store";
 import { requestWallet } from "./Wallet/actions";
 
@@ -19,17 +19,13 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Homepage />
+        <RootStack />
       </Provider>
     );
   }
 }
 
-export default StackNavigator({
-  Home: {
-    screen: App
-  }
-});
+export default App;
 
 const styles = StyleSheet.create({
   container: {

@@ -2,10 +2,10 @@
 import { connect } from "react-redux";
 
 // Internal
-import Homepage from "./Homepage";
+import Setup from "./Setup";
 
 const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps)(Homepage);
+export default connect(mapStateToProps)(Setup);

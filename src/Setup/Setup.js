@@ -1,9 +1,21 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 
-const Setup = () => (
+const Setup = ({ navigation }) => (
   <View>
-    <Text>Hello</Text>
+    <Text>You'll need to setup a wallet to proceed</Text>
+    <Button
+      onPress={() => {
+        navigation.navigate("ImportWallet");
+      }}
+      title="Import Existing Wallet"
+    />
+    <Button
+      onPress={() => {
+        navigation.navigate("CreateWallet");
+      }}
+      title="Create New Wallet"
+    />
   </View>
 );
 

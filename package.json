@@ -28,13 +28,16 @@
     "expo": "^26.0.0",
     "react": "16.3.0-alpha.1",
     "react-native": "0.54.0",
-    "react-native-keychain": "^3.0.0-rc.3",
+    "react-native-sensitive-info": "^5.1.0",
     "react-navigation": "^1.5.11",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0"
   },
   "lint-staged": {
-    "*.{js}": ["prettier --write", "git add"]
+    "*.{js}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
